@@ -36,7 +36,7 @@ pipeline {
 
                 }
         }
-        stage('Publich to Docker Hub'){
+        stage('Publish to Docker Hub'){
                 steps{
                     echo 'Publishing the docker image to docker hub'
                     script{
@@ -46,5 +46,6 @@ pipeline {
                     }
                 }
         }
+
      }
   }
