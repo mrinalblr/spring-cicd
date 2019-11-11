@@ -4,6 +4,7 @@ pipeline {
        mavenHome = tool name: 'usr/local/maven', type: 'maven'	
        mavenCMD = "${mavenHome}/bin/mvn"
        dockerHubRegistry = 'mrdeo/get-started'
+       dockerImage = ''
         
       }
      stages {
