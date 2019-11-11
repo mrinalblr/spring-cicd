@@ -1,7 +1,7 @@
 pipeline {
   agent any
    environment{
-         mavenCMD = "mvn"
+         mavenCMD = "usr/local/maven"
       }
      stages {
         stage('Init'){
