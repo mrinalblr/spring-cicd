@@ -3,7 +3,7 @@ pipeline {
    environment{
        mavenHome = tool name: 'usr/local/maven', type: 'maven'	
        mavenCMD = "${mavenHome}/bin/mvn"
-       dockerHubRegistry = 'mrdeo/get-started'
+       dockerHubRegistry = 'mrdeo/spring-cicd'
        dockerHubCredentials = 'dockerhubcred'
        dockerImage = ''
         
@@ -31,7 +31,7 @@ pipeline {
                 steps{
                     echo 'Building the docker image'
                     script{
-                        dockerImage = docker.build dockerHubRegistry + ":BUILD_NUMBER"
+                        dockerImage = docker.build dockerHubRegistry + ":latestß"
                      }
 
                 }
