@@ -4,6 +4,7 @@ pipeline {
        mavenHome = tool name: 'usr/local/maven', type: 'maven'	
        mavenCMD = "${mavenHome}/bin/mvn"
        dockerHubRegistry = 'mrdeo/get-started'
+       dockerHubCredentials = 'dockerhubcred'
        dockerImage = ''
         
       }
@@ -33,6 +34,16 @@ pipeline {
                         dockerImage = docker.build dockerHubRegistry + ":BUILD_NUMBER"
                      }
 
+                }
+        }
+        stage('Publich to Docker Hub'){
+                steps{
+                    echo 'Publishing the docker image to docker hub'
+                    script{
+                        docker.withRegistry('',dockerHubCredentials){
+                         dockerImage.push()
+                        }
+                    }
                 }
         }
      }
