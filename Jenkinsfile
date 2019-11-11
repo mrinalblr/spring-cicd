@@ -1,8 +1,8 @@
 pipeline{
 
 stages{
-   stage{
-      steps('Init'){
+   stage('Init'){
+      steps{
          echo 'Initializing the pipeline'
       }
    }
