@@ -22,6 +22,8 @@ pipeline {
                     echo 'Building the Jar '
                     sh "${mavenCMD} clean package"
                     sh 'docker build . -t deomrinal/spring-cicd:1.0.0'
+                    sh 'docker images'
+                    sh 'docker push deomrinal/spring-cicd:1.0.0'
                 }
          }
      }
