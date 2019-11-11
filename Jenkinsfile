@@ -31,7 +31,7 @@ pipeline {
                 steps{
                     echo 'Building the docker image'
                     script{
-                        dockerImage = docker.build dockerHubRegistry + ":latestß"
+                        dockerImage = docker.build dockerHubRegistry + ":latest"
                      }
 
                 }
