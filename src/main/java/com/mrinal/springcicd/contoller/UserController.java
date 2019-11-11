@@ -36,4 +36,8 @@ public class UserController {
 
        return new ResponseEntity<GenericResponse>(userResponse, HttpStatus.OK);
     }
+    @GetMapping("/healthcheck")
+    public ResponseEntity<GenericResponse> healthcheck(){
+        return new ResponseEntity<GenericResponse>(new GenericResponse(200,"Application is up and running",null),HttpStatus.OK);
+    }
 }
