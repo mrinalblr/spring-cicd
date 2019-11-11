@@ -46,6 +46,12 @@ pipeline {
                     }
                 }
         }
+        stage('Deploying to local docker'){
+                steps{
+                    echo 'Deploying to locally running docker'
+                    sh'docker run -p 8083:8082 ${dockerImage}'
+                }
+        }
 
      }
   }
