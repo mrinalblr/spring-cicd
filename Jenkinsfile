@@ -29,7 +29,10 @@ pipeline {
         stage('Building Image'){
                 steps{
                     echo 'Building the docker image'
-                    dockerImage = docker.build dockerHubRegistry + ":BUILD_NUMBER"
+                    script{
+                        dockerImage = docker.build dockerHubRegistry + ":BUILD_NUMBER"
+                     }
+
                 }
         }
      }
