@@ -3,6 +3,7 @@ pipeline {
    environment{
        mavenHome = tool name: 'usr/local/maven', type: 'maven'	
        mavenCMD = "${mavenHome}/bin/mvn"
+       dockerHubRegistry = 'mrdeo/get-started'
         
       }
      stages {
@@ -21,10 +22,14 @@ pipeline {
                 steps{
                     echo 'Building the Jar '
                     sh "${mavenCMD} clean package"
-                    sh 'docker build . -t deomrinal/spring-cicd:1.0.0'
-                    sh 'docker images'
-                    sh 'docker push deomrinal/spring-cicd:1.0.0'
+
                 }
          }
+        stage('Building Image'){
+                steps{
+                    echo 'Building the docker image'
+                    dockerImage = docker.build dockerHubRegistry + ":BUILD_NUMBER"
+                }
+        }
      }
   }
