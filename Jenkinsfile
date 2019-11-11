@@ -50,7 +50,7 @@ pipeline {
                 steps{
                     echo 'Deploying to locally running docker'
                     echo "${dockerImage}"
-                    sh "docker run -p 8083:8082 mdeo/spring-cicd:latest"
+                    sh "docker run -p 8083:8082 mrdeo/spring-cicd:latest"
                 }
         }
 
